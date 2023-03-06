@@ -1,0 +1,27 @@
+.form-body {
+  margin: 3rem 0;
+}
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form__button-prev {
+  padding: 10px 5px;
+  border-radius: 5px;
+  float: left;
+  width: 100px;
+  margin: 10px 0;
+  border: 1px solid var(--oxyy-input-bord);
+  cursor: pointer;
+}
+
+.form__button-next {
+  padding: 10px 5px;
+  border-radius: 5px;
+  float: right;
+  width: 100px;
+  margin: 10px 0;
+  border: 1px solid var(--oxyy-input-bord);
+  cursor: pointer;
+}

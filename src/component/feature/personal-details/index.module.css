@@ -1,0 +1,5 @@
+.error--message {
+  font-size: 1.2rem;
+  font-family: var(--oxyy--font);
+  color: var(--oxyy--red);
+}

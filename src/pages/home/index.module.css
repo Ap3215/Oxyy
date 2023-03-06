@@ -1,0 +1,13 @@
+/* .home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+} */
+.min-height {
+  min-height: 100vh !important;
+}
+
+.fluid {
+  --bs-gutter-x: 0 !important;
+}

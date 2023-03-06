@@ -1,0 +1,30 @@
+.heading {
+  font-family: var(--oxyy--font);
+  font-weight: 500;
+}
+
+.heading--black {
+  color: var(--oxyy--black2);
+}
+.heading--white {
+  color: var(--oxyy--white);
+}
+
+.heading--h1 {
+  font-size: 4rem;
+}
+.heading--h2 {
+  font-size: 3rem;
+}
+.heading--h3 {
+  font-size: 2.4rem;
+}
+.heading--h4 {
+  font-size: 2rem;
+}
+.heading--h5 {
+  font-size: 1.8rem;
+}
+.heading--h6 {
+  font-size: 1.4rem;
+}
