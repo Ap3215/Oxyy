@@ -15,7 +15,7 @@ const actionTypes = {
   nationality: "VALIDATE_NATIONALITY",
 };
 
-const initialState = {
+const initialFormInputState = {
   fullname: "",
   email: "",
   password: "",
@@ -34,7 +34,7 @@ const inputsReducer = (state, action) => {
   }
 };
 
-const initialFormState = {
+const initialValidateState = {
   isFullnameValid: false,
   isEmailValid: false,
   isPasswordValid: false,
@@ -86,12 +86,15 @@ const validationReducer = (state, action) => {
 };
 
 const FormLayout = () => {
-  const [changePages, setChangePages] = useState(0);
+  const [page, setPage] = useState(0);
 
-  const [formInputs, dispatchForm] = useReducer(inputsReducer, initialState);
+  const [formInputs, dispatchForm] = useReducer(
+    inputsReducer,
+    initialFormInputState
+  );
   const [formValidations, dispatchValidation] = useReducer(
     validationReducer,
-    initialFormState
+    initialValidateState
   );
 
   const onChangeHandler = (e) => {
@@ -111,11 +114,29 @@ const FormLayout = () => {
     console.log(formInputs);
   };
 
+  const onPageChangeHandler = (e, type) => {
+    if (type === "increment") {
+      if (page === 0) {
+        if (
+          formValidations.isFullnameValid &&
+          formValidations.isPasswordValid &&
+          formValidations.isEmailValid
+        ) {
+          e.preventDefault();
+          setPage((currPage) => currPage + 1);
+        }
+      }
+    } else {
+      e.preventDefault();
+      setPage((currPage) => currPage - 1);
+    }
+  };
+
   const displayPage = () => {
-    if (changePages === 0) {
+    if (page === 0) {
       return (
         <SignUp
-          inputState={formInputs}
+          formInputs={formInputs}
           onChange={onChangeHandler}
           formValidateHandler={formValidations}
         />
@@ -123,7 +144,7 @@ const FormLayout = () => {
     } else {
       return (
         <PersonalDetail
-          inputState={formInputs}
+          formInputs={formInputs}
           onChange={onChangeHandler}
           formValidateHandler={formValidations}
         />
@@ -136,35 +157,21 @@ const FormLayout = () => {
       <div className="row">
         <div className="m-auto col-10 col-lg-9 col-xl-8">
           <form onSubmit={onSubmitHandler}>
-            <div className={classes["form-body"]}>{displayPage()}</div>
-            <div className={classes["form-footer"]}>
+            <div className={classes["form__body"]}>{displayPage()}</div>
+            <div className={classes["form__footer"]}>
               <Button
-                disabled={changePages === 0}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setChangePages((currPage) => currPage - 1);
-                }}
+                disabled={page === 0}
+                onClick={(e) => onPageChangeHandler(e, "decrement")}
                 type="prev"
               >
                 Back
               </Button>
 
               <Button
-                onClick={(e) => {
-                  if (changePages === 0) {
-                    if (
-                      formValidations.isFullnameValid &&
-                      formValidations.isPasswordValid &&
-                      formValidations.isEmailValid
-                    ) {
-                      e.preventDefault();
-                      setChangePages((currPage) => currPage + 1);
-                    }
-                  }
-                }}
+                onClick={(e) => onPageChangeHandler(e, "increment")}
                 type="next"
               >
-                {changePages === 1 ? "Submit" : "Proceed"}
+                {page === 1 ? "Submit" : "Proceed"}
               </Button>
             </div>
           </form>

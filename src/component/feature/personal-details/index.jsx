@@ -6,7 +6,7 @@ import Heading from "../../ui/heading";
 
 import classes from "./index.module.css";
 
-const PersonalDetail = ({ inputState, onChange, formValidateHandler }) => {
+const PersonalDetail = ({ formInputs, onChange, formValidateHandler }) => {
   return (
     <>
       <div className={"mb-3"}>
@@ -20,10 +20,10 @@ const PersonalDetail = ({ inputState, onChange, formValidateHandler }) => {
           type="text"
           placeholder="Enter Your Name..."
           name="name"
-          value={inputState.name}
+          value={formInputs.name}
           onChange={onChange}
         />
-        {inputState.name.length > 0 && !formValidateHandler.isNameValid ? (
+        {formInputs.name.length > 0 && !formValidateHandler.isNameValid ? (
           <span className={classes["error--message"]}>
             Please Enter A valid Password
           </span>
@@ -35,10 +35,10 @@ const PersonalDetail = ({ inputState, onChange, formValidateHandler }) => {
           type="text"
           placeholder="Enter Your Occupation..."
           name="occupation"
-          value={inputState.occupation}
+          value={formInputs.occupation}
           onChange={onChange}
         />
-        {inputState.occupation.length > 0 &&
+        {formInputs.occupation.length > 0 &&
         !formValidateHandler.isOccupationValid ? (
           <span className={classes["error--message"]}>
             Please Enter A valid Occupation
@@ -51,10 +51,10 @@ const PersonalDetail = ({ inputState, onChange, formValidateHandler }) => {
           type="text"
           placeholder="Enter Your Nationality..."
           name="nationality"
-          value={inputState.nationality}
+          value={formInputs.nationality}
           onChange={onChange}
         />
-        {inputState.nationality.length > 0 &&
+        {formInputs.nationality.length > 0 &&
         !formValidateHandler.isNationalityValid ? (
           <span className={classes["error--message"]}>
             Please Enter A valid Nationality

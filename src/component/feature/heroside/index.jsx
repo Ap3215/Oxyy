@@ -4,7 +4,6 @@ import Heading from "../../ui/heading";
 import Logo from "../../ui/logo";
 
 import classes from "./index.module.css";
-
 import { combineClasses } from "../../../utils";
 
 const Heroside = () => {

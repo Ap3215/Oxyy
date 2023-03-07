@@ -1,7 +1,7 @@
-.form-body {
+.form__body {
   margin: 3rem 0;
 }
-.form-footer {
+.form__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;

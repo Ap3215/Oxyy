@@ -5,7 +5,7 @@ import Label from "../../ui/label";
 import Heading from "../../ui/heading";
 import classes from "./index.module.css";
 
-const SignUp = ({ inputState, onChange, formValidateHandler }) => {
+const SignUp = ({ formInputs, onChange, formValidateHandler }) => {
   return (
     <>
       <div className={"mb-3"}>
@@ -19,10 +19,10 @@ const SignUp = ({ inputState, onChange, formValidateHandler }) => {
           type="text"
           placeholder="Enter Your Name..."
           name="fullname"
-          value={inputState.fullname}
+          value={formInputs.fullname}
           onChange={onChange}
         />
-        {inputState.fullname.length > 0 &&
+        {formInputs.fullname.length > 0 &&
         !formValidateHandler.isFullnameValid ? (
           <span className={classes["error--message"]}>
             Please Enter A valid Full Name.
@@ -35,10 +35,10 @@ const SignUp = ({ inputState, onChange, formValidateHandler }) => {
           type="email"
           placeholder="Enter Your email..."
           name="email"
-          value={inputState.email}
+          value={formInputs.email}
           onChange={onChange}
         />
-        {inputState.email.length > 0 && !formValidateHandler.isEmailValid ? (
+        {formInputs.email.length > 0 && !formValidateHandler.isEmailValid ? (
           <span className={classes["error--message"]}>
             Please Enter A valid Email.
           </span>
@@ -50,10 +50,10 @@ const SignUp = ({ inputState, onChange, formValidateHandler }) => {
           type="password"
           placeholder="Enter Your password..."
           name="password"
-          value={inputState.password}
+          value={formInputs.password}
           onChange={onChange}
         />
-        {inputState.password.length > 0 &&
+        {formInputs.password.length > 0 &&
         !formValidateHandler.isPasswordValid ? (
           <span className={classes["error--message"]}>
             Please Enter A valid Password
