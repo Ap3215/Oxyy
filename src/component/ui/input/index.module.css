@@ -1,0 +1,10 @@
+.input {
+  border: 1px solid var(--oxyy-input-border);
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--oxyy-input-color);
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: var(--oxyy--font);
+  width: 100%;
+}
